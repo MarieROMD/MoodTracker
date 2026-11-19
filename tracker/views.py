@@ -45,7 +45,7 @@ def entry_create(request):
 
 
 def entry_detail(request, id):
-    return HttpResponse(f"Detail of entry #{id}")
+  return HttpResponse(f"Detail of entry #{id}")
 
 
 @login_required
@@ -70,7 +70,7 @@ def entry_edit(request, id):
 
 
 def entry_delete(request, id):
-    return HttpResponse(f"Confirm deletion of entry #{id}")
+   return HttpResponse(f"Confirm deletion of entry #{id}")
 
 
 
@@ -110,12 +110,12 @@ def tag_edit(request, slug):
 
 def tag_detail(request, slug):
     return HttpResponse(f"Entries tagged '{slug}'")
-
-
+#
+#
 def category_list(request):
-    return HttpResponse("List of mood categories")
-
-
+   return HttpResponse("List of mood categories")
+#
+#
 def stats(request):
     total_entries =3
     average_mood = 3.6
@@ -123,3 +123,8 @@ def stats(request):
     current_streak =12
 
     return render(request,"moods/stats.html",{"total_entries": total_entries,"average_mood":average_mood,"average_intensity":average_intensity,"current_streak":current_streak})
+
+
+
+def profile(request):
+    return render(request, 'profile.html')

@@ -2,6 +2,7 @@
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
@@ -38,8 +39,8 @@ def signup(request):
 
 
 def login_view(request):
-    if request.user.is_authenticated:
-        return redirect("home")
+    # if request.user.is_authenticated:
+    #     return redirect("home")
 
     next_url = (
         request.POST.get("next")
@@ -76,12 +77,11 @@ def login_view(request):
 @require_POST
 def logout_view(request):
     logout(request)
-    messages.info(request, "You have been logged out")
+    messages.info(request, " logged out")
     return redirect("login")
 
- # def profile(request):
- #    return HttpResponse("Your profile page — coming soon")
+def profile(request):
+    return HttpResponse("Your profile page — coming soon")
 
-
-#  def delete_profile(request):
-#     return redirect("login")
+def delete_profile(request):
+   return redirect("login")
