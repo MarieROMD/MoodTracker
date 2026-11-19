@@ -10,7 +10,7 @@
   <form method="post" class="confirm-actions">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete entry</button>
-    <a class="btn btn-secondary" href="{% url 'entry_update' object.pk %}">Keep it</a>
+    <a class="btn btn-secondary" href="{% url 'entry_edit' object.id %}">Keep it</a>
   </form>
 </section>
 {% endblock %}
